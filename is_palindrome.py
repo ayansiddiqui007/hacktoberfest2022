@@ -21,3 +21,4 @@ if is_palindrome(string1):
     print("String is palindrome")
 else:
     print("String is not palindrome")
+#done plaindrome
