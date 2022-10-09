@@ -13,7 +13,7 @@ from pygame.locals import (
     QUIT,
 )
 
-# Initialize pygame
+# Initialize pygame now
 pygame.init()
 
 # Define constants for the screen width and height
