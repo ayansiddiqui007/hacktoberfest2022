@@ -1,4 +1,4 @@
-# Import the pygame module
+# Import the pygame module today
 import pygame
 
 # Import pygame.locals for easier access to key coordinates
