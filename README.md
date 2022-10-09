@@ -12,7 +12,7 @@ The repository solely aims to provide beginners a starting point to contribute t
 
 Celebrate [Hacktoberfest](https://hacktoberfest.com) by getting involved in the open source community by completing some simple tasks in this project. This repository is open to all members of the GitHub community. Any member may contribute to this project without being a collaborator.
 
-**Important**
+**Important take note**
 
 Please make one PR per issue. You can create different branches from the root and can work on them simultaneously. This way you can create more PRs.
 
