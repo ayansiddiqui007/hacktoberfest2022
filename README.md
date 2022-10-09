@@ -1,4 +1,4 @@
-# hactoberfest2022-beginner-accepted
+# hactoberfest2022-beginner-accepted-today
 PULL/MERGE REQUESTS
 # This is an open source project on Github. 
 Here you can practice making your first Pull Request to a public repository before doing a more complex contribution. 
