@@ -1,1 +1,300 @@
-101
+Give a simple example of Jest test case
+React Redux
+152	What is Flux?
+153	What is Redux?
+154	What are the core principles of Redux?
+155	What are the downsides of Redux compared to Flux?
+156	What is the difference between mapStateToProps() and mapDispatchToProps()?
+157	Can I dispatch an action in reducer?
+158	How to access Redux store outside a component?
+159	What are the drawbacks of MVW pattern
+160	Are there any similarities between Redux and RxJS?
+161	How to dispatch an action on load?
+162	How to use connect from React Redux?
+163	How to reset state in Redux?
+164	Whats the purpose of at symbol in the redux connect decorator?
+165	What is the difference between React context and React Redux?
+166	Why are Redux state functions called reducers?
+167	How to make AJAX request in Redux?
+168	Should I keep all component's state in Redux store?
+169	What is the proper way to access Redux store?
+170	What is the difference between component and container in React Redux?
+171	What is the purpose of the constants in Redux?
+172	What are the different ways to write mapDispatchToProps()?
+173	What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?
+174	How to structure Redux top level directories?
+175	What is redux-saga?
+176	What is the mental model of redux-saga?
+177	What are the differences between call and put in redux-saga
+178	What is Redux Thunk?
+179	What are the differences between redux-saga and redux-thunk
+180	What is Redux DevTools?
+181	What are the features of Redux DevTools?
+182	What are Redux selectors and Why to use them?
+183	What is Redux Form?
+184	What are the main features of Redux Form?
+185	How to add multiple middlewares to Redux?
+186	How to set initial state in Redux?
+187	How Relay is different from Redux?
+188	What is an action in Redux?
+React Native
+188	What is the difference between React Native and React?
+189	How to test React Native apps?
+190	How to do logging in React Native?
+191	How to debug your React Native?
+React supported libraries and Integration
+192	What is reselect and how it works?
+193	What is Flow?
+194	What is the difference between Flow and PropTypes?
+195	How to use font-awesome icons in React?
+196	What is React Dev Tools?
+197	Why is DevTools not loading in Chrome for local files?
+198	How to use Polymer in React?
+199	What are the advantages of React over Vue.js?
+200	What is the difference between React and Angular?
+201	Why React tab is not showing up in DevTools?
+202	What are styled components?
+203	Give an example of Styled Components?
+204	What is Relay?
+205	How to use TypeScript in create-react-app application?
+Miscellaneous
+206	What are the main features of reselect library?
+207	Give an example of reselect usage?
+209	Does the statics object work with ES6 classes in React?
+210	Can Redux only be used with React?
+211	Do you need to have a particular build tool to use Redux?
+212	How Redux Form initialValues get updated from state?
+213	How React PropTypes allow different type for one prop?
+214	Can I import an SVG file as react component?
+215	Why are inline ref callbacks or functions not recommended?
+216	What is render hijacking in React?
+217	What are HOC factory implementations?
+218	How to pass numbers to React component?
+219	Do I need to keep all my state into Redux? Should I ever use react internal state?
+220	What is the purpose of registerServiceWorker in React?
+221	What is React memo function?
+222	What is React lazy function?
+223	How to prevent unnecessary updates using setState?
+224	How do you render Array, Strings and Numbers in React 16 Version?
+225	How to use class field declarations syntax in React classes?
+226	What are hooks?
+227	What rules need to be followed for hooks?
+228	How to ensure hooks followed the rules in your project?
+229	What are the differences between Flux and Redux?
+230	What are the benefits of React Router V4?
+231	Can you describe about componentDidCatch lifecycle method signature?
+232	In which scenarios error boundaries do not catch errors?
+233	Why do you not need error boundaries for event handlers?
+234	What is the difference between try catch block and error boundaries?
+235	What is the behavior of uncaught errors in react 16?
+236	What is the proper placement for error boundaries?
+237	What is the benefit of component stack trace from error boundary?
+238	What is the required method to be defined for a class component?
+239	What are the possible return types of render method?
+240	What is the main purpose of constructor?
+241	Is it mandatory to define constructor for React component?
+242	What are default props?
+243	Why should not call setState in componentWillUnmount?
+244	What is the purpose of getDerivedStateFromError?
+245	What is the methods order when component re-rendered?
+246	What are the methods invoked during error handling?
+247	What is the purpose of displayName class property?
+248	What is the browser support for react applications?
+249	What is the purpose of unmountComponentAtNode method?
+250	What is code-splitting?
+251	What is the benefit of strict mode?
+252	What are Keyed Fragments?
+253	Does React support all HTML attributes?
+254	What are the limitations with HOCs?
+255	How to debug forwardRefs in DevTools?
+256	When component props defaults to true?
+257	What is NextJS and major features of it?
+258	How do you pass an event handler to a component?
+259	Is it good to use arrow functions in render methods?
+260	How to prevent a function from being called multiple times?
+261	How JSX prevents Injection Attacks?
+262	How do you update rendered elements?
+263	How do you say that props are read only?
+264	How do you say that state updates are merged?
+265	How do you pass arguments to an event handler?
+266	How to prevent component from rendering?
+267	What are the conditions to safely use the index as a key?
+268	Is it keys should be globally unique?
+269	What is the popular choice for form handling?
+270	What are the advantages of formik over redux form library?
+271	Why do you not required to use inheritance?
+272	Can I use web components in react application?
+273	What is dynamic import?
+274	What are loadable components?
+275	What is suspense component?
+276	What is route based code splitting?
+277	Give an example on How to use context?
+278	What is the purpose of default value in context?
+279	How do you use contextType?
+280	What is a consumer?
+281	How do you solve performance corner cases while using context?
+282	What is the purpose of forward ref in HOCs?
+283	Is it ref argument available for all functions or class components?
+284	Why do you need additional care for component libraries while using forward refs?
+285	How to create react class components without ES6?
+286	Is it possible to use react without JSX?
+287	What is diffing algorithm?
+288	What are the rules covered by diffing algorithm?
+289	When do you need to use refs?
+290	Is it prop must be named as render for render props?
+291	What are the problems of using render props with pure components?
+292	How do you create HOC using render props?
+293	What is windowing technique?
+294	How do you print falsy values in JSX?
+295	What is the typical use case of portals?
+296	How do you set default value for uncontrolled component?
+297	What is your favorite React stack?
+298	What is the difference between Real DOM and Virtual DOM?
+299	How to add Bootstrap to a react application?
+300	Can you list down top websites or applications using react as front end framework?
+301	Is it recommended to use CSS In JS technique in React?
+302	Do I need to rewrite all my class components with hooks?
+303	How to fetch data with React Hooks?
+304	Is Hooks cover all use cases for classes?
+305	What is the stable release for hooks support?
+306	Why do we use array destructuring (square brackets notation) in useState?
+307	What are the sources used for introducing hooks?
+308	How do you access imperative API of web components?
+309	What is formik?
+310	What are typical middleware choices for handling asynchronous calls in Redux?
+311	Do browsers understand JSX code?
+312	Describe about data flow in react?
+313	What is react scripts?
+314	What are the features of create react app?
+315	What is the purpose of renderToNodeStream method?
+316	What is MobX?
+317	What are the differences between Redux and MobX?
+318	Should I learn ES6 before learning ReactJS?
+319	What is Concurrent Rendering?
+320	What is the difference between async mode and concurrent mode?
+321	Can I use javascript urls in react16.9?
+322	What is the purpose of eslint plugin for hooks?
+323	What is the difference between Imperative and Declarative in React?
+324	What are the benefits of using typescript with reactjs?
+325	How do you make sure that user remains authenticated on page refresh while using Context API State Management?
+326	What are the benefits of new JSX transform?
+327	How does new JSX transform different from old transform?
+328	How do you get redux scaffolding using create-react-app?
+329	What are React Server components?
+330	What is prop drilling?
+331	What is state mutation and how to prevent it?
+332	What is the difference between useState and useRef hook?
+333	What are the Differences Between Functional and Class Component in React
+Core React
+What is React?
+React is an open-source front-end JavaScript library that is used for building user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps. React was created by Jordan Walke, a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
+
+⬆ Back to Top
+
+What are the major features of React?
+The major features of React are:
+
+It uses VirtualDOM instead of RealDOM considering that RealDOM manipulations are expensive.
+Supports server-side rendering.
+Follows Unidirectional data flow or data binding.
+Uses reusable/composable UI components to develop the view.
+⬆ Back to Top
+
+What is JSX?
+JSX is a XML-like syntax extension to ECMAScript (the acronym stands for JavaScript XML). Basically it just provides syntactic sugar for the React.createElement() function, giving us expressiveness of JavaScript along with HTML like template syntax.
+
+In the example below text inside <h1> tag is returned as JavaScript function to the render function.
+
+class App extends React.Component {
+  render() {
+    return(
+      <div>
+        <h1>{'Welcome to React world!'}</h1>
+      </div>
+    )
+  }
+}
+⬆ Back to Top
+
+What is the difference between Element and Component?
+An Element is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. Elements can contain other Elements in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
+
+The object representation of React Element would be as follows:
+
+const element = React.createElement(
+  'div',
+  {id: 'login-btn'},
+  'Login'
+)
+The above React.createElement() function returns an object:
+
+{
+  type: 'div',
+  props: {
+    children: 'Login',
+    id: 'login-btn'
+  }
+}
+And finally it renders to the DOM using ReactDOM.render():
+
+<div id='login-btn'>Login</div>
+Whereas a component can be declared in several different ways. It can be a class with a render() method or it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
+
+const Button = ({ onLogin }) =>
+  <div id={'login-btn'} onClick={onLogin}>Login</div>
+Then JSX gets transpiled to a React.createElement() function tree:
+
+const Button = ({ onLogin }) => React.createElement(
+  'div',
+  { id: 'login-btn', onClick: onLogin },
+  'Login'
+)
+⬆ Back to Top
+
+How to create components in React?
+There are two possible ways to create a component.
+
+Function Components: This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements:
+
+function Greeting({ message }) {
+  return <h1>{`Hello, ${message}`}</h1>
+
+}
+Class Components: You can also use ES6 class to define a component. The above function component can be written as:
+
+class Greeting extends React.Component {
+  render() {
+    return <h1>{`Hello, ${this.props.message}`}</h1>
+  }
+}
+⬆ Back to Top
+
+When to use a Class Component over a Function Component?
+If the component needs state or lifecycle methods then use class component otherwise use function component. However, from React 16.8 with the addition of Hooks, you could use state , lifecycle methods and other features that were only available in class component right in your function component. *So, it is always recommended to use Function components, unless you need a React functionality whose Function component equivalent is not present yet, like Error Boundaries *
+
+⬆ Back to Top
+
+What are Pure Components?
+React.PureComponent is exactly the same as React.Component except that it handles the shouldComponentUpdate() method for you. When props or state changes, PureComponent will do a shallow comparison on both props and state. Component on the other hand won't compare current props and state to next out of the box. Thus, the component will re-render by default whenever shouldComponentUpdate is called.
+
+⬆ Back to Top
+
+What is state in React?
+State of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
+
+Let's create a user component with message state,
+
+class User extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      message: 'Welcome to React world'
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
