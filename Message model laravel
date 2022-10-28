@@ -1,0 +1,14 @@
+Message Model and Migration
+Create a Message model along with the migration file by running the command:
+
+php artisan make:model Message -m
+Open the Message model and add the code below to it:
+
+// app/Message.php
+
+/**
+ * Fields that are mass assignable
+ *
+ * @var array
+ */
+protected $fillable = ['message'];
