@@ -1,0 +1,27 @@
+User To Message Relationship
+We need to setup the relationship between a user and a message. A user can send many messages while a particular message was sent by a user. So, the relationship between the user and message is a one to many relationship. To define this relationship, add the code below to User model:
+
+// app/User.php
+
+/**
+ * A user can have many messages
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
+public function messages()
+{
+  return $this->hasMany(Message::class);
+}
+Next, we need to define the inverse relationship by adding the code below to Message model:
+
+// app/Message.php
+
+/**
+ * A message belong to a user
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ */
+public function user()
+{
+  return $this->belongsTo(User::class);
+}
