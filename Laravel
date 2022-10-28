@@ -1,0 +1,70 @@
+Setting Up Pusher
+If you don’t have one already, create a free Pusher account at https://pusher.com/signup then login to your dashboard and create an app.
+
+Now, let’s fill in our Pusher app credentials. If you open the config/broadcasting.php, you’ll notice that Laravel is pulling some of Pusher credential from the .env file:
+
+// Don't add your credentials here!
+// config/broadcasting.php
+
+'pusher' => [
+  'driver' => 'pusher',
+  'key' => env('PUSHER_APP_KEY'),
+  'secret' => env('PUSHER_APP_SECRET'),
+  'app_id' => env('PUSHER_APP_ID'),
+  'options' => [],
+],
+We need to modify the source a little bit here to get this to work. Modify the source so that it looks like this:
+
+  'pusher' => [
+      'driver' => 'pusher',
+      'key' => env('PUSHER_APP_KEY'),
+      'secret' => env('PUSHER_APP_SECRET'),
+      'app_id' => env('PUSHER_APP_ID'),
+      'options' => [
+          'cluster' => env('PUSHER_CLUSTER'),
+          'encrypted' => true,
+      ],
+  ],
+Then let’s update the .env file to contain our Pusher app credentials (noting the added cluster credential, this won’t be in your .env file as Laravel has not added this functionality yet:
+
+// .env
+
+PUSHER_APP_ID=xxxxxx
+PUSHER_APP_KEY=xxxxxxxxxxxxxxxxxxxx
+PUSHER_APP_SECRET=xxxxxxxxxxxxxxxxxxxx
+PUSHER_CLUSTER=xx
+Remember to replace the xs with your Pusher app credentials. You can find your app credentials under the Keys section on the Overview tab.
+
+Now that we’ve set up the back-end of our project, let’s move on to setting up the front-end. Laravel provides some front-end frameworks and libraries, including - Bootstrap, Vuejs and Axios which we’ll be using in this tutorial.
+
+We’ll also be making use of Laravel Mix, which is a wrapper around Webpack that will help us compile our CSS and JavaScript.
+
+But first, we need to install these dependencies through NPM:
+
+npm install
+To subscribe and listen to events, Laravel provides Laravel Echo, which is a JavaScript library that makes it painless to subscribe to channels and listen for events broadcast by Laravel. We’ll need to install it along with the Pusher JavaScript library:
+
+npm install --save laravel-echo pusher-js
+Once installed, we need to tell Laravel Echo to use Pusher. At the bottom of the resources/assets/js/bootstrap.js file, Laravel have stubbed Echo integration though it is commented out. Simply uncomment the Laravel Echo section and update the details with:
+
+// resources/assets/js/bootstrap.js
+
+import Echo from "laravel-echo"
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'xxxxxxxxxxxxxxxxxxxx',
+    cluster: 'eu',
+    encrypted: true
+});
+Remember to replace the xs with your Pusher app key. Also use the same cluster that you specified earlier in config/broadcasting.php.
+
+Now that we are done with setting up Laravel and Pusher and other dependencies, it time to start building our chat application.
+
+Authenticating Users
+Our chat app will require users to be logged in before they can begin to chat. So, we need an authentication system, which with Laravel is as simple as running an artisan command in the terminal:
+
+php artisan make:auth
+This will create the necessary routes, views and controllers needed for an authentication system.
+
+Before we go on to create users, we need to run the users migration that comes with a fresh installation of Laravel. But to do this, we first need to setup our database. Open the .env file and enter your database details:
