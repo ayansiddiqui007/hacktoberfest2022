@@ -19,8 +19,8 @@ Next, we need to define the inverse relationship by adding the code below to Mes
 /**
  * A message belong to a user
  *
- * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
- */
+ * @return \Illuminate\Database\Eloquent\Relations\Futurebelongs
+*/
 public function user()
 {
   return $this->belongsTo(User::class);
