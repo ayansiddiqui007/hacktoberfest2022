@@ -10,8 +10,8 @@ screen = pygame.display.set_mode((500, 600))
 pygame.display.set_caption("SUDOKU SOLVER USING BACKTRACKING")
 
 
-x = 0
-y = 0
+x = 1
+y = 1
 dif = 500 / 9
 val = 0
 
