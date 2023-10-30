@@ -41,7 +41,6 @@ We’ll also be making use of Laravel Mix, which is a wrapper around Webpack tha
 
 But first, we need to install these dependencies through NPM:
 
-npm install
 To subscribe and listen to events, Laravel provides Laravel Echo, which is a JavaScript library that makes it painless to subscribe to channels and listen for events broadcast by Laravel. We’ll need to install it along with the Pusher JavaScript library:
 
 npm install --save laravel-echo pusher-js
