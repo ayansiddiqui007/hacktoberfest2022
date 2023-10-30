@@ -15,3 +15,5 @@ from pygame.locals import (
 
 # Initialize pygame
 pygame.init()
+
+pygame.init();
