@@ -1,4 +1,4 @@
-# Simple pygame program
+# Game Program in Python
 
 # Import and initialize the pygame library
 import pygame
