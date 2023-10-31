@@ -22,4 +22,4 @@ desc = str(weather_desc)
 
 result = "Current temperature is: " + temp + " Celsius in " + city+ ".\nCurrent weather condition is: " + desc
 n.show_toast("Live Weather update: ",
-			result, duration = 10)
+			result, duration = 20)
