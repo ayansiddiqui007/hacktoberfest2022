@@ -56,7 +56,7 @@ class Node:
             while temp!=None:
                 print(temp.value,end="  ")
                 temp=temp.next
-head=Node(10)
+head=Node(5)
 head.append(20)
 head.append(30)
 head.appendi(40)
