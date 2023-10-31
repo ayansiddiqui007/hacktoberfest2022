@@ -11,7 +11,7 @@ def is_palindrome(string1):
         else:
             low += 1
             high -= 1
-    return True
+    return False
 
 
 # Driver's Code
