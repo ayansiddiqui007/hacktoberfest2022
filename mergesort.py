@@ -25,5 +25,5 @@ def merge_sort(L):
     right_half=merge_sort(L[n//2:])
     sorted_merged_list=merge(left_half,right_half)
     return(sorted_merged_list)    
-L=[4,2,7,6,8,3,5,1]
+L=[4,2,7,6,8,3,6,99]
 print(merge_sort(L))
