@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Growth Comparison</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #08091B; /* Dark background */
+            color: #fff; /* Text color set to white */
+            margin: 0; /* Remove margin */
+            padding: 0; /* Remove padding */
+            overflow: hidden; /* Disable scrollbars */
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90vw; /* Width set to 90% of the viewport */
+            height: 90vh; /* Height set to 90% of the viewport */
+            background: #08091B; /* Darker background for the container */
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Stronger shadow for better contrast */
+            border-radius: 10px; /* Rounded corners */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h1 {
+            color: #fff; /* White text for the title */
+        }
+
+        canvas {
+            flex-grow: 1;
+            max-width: 100%; /* Make canvas responsive */
+            max-height: 70vh; /* Adjust to the screen height */
+        }
+
+        /* Slider styling */
+        .slider input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px; /* Thinner slider */
+            background: #fff; /* White track */
+            border-radius: 10px;
+            outline: none;
+            opacity: 0.9;
+        }
+
+        .slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px; /* Smaller thumb */
+            height: 25px;
+            background: #BAEE2F;
+            border: 2px solid #BAEE2F;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .range-value {
+            font-weight: bold;
+            color: #A9D82D; /* Bright color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Investment Growth Comparison</h1>
+        <p>Adjust the investment amount to see the growth comparison of Plan A, Bitcoin, and S&P 500</p>
+
+        <!-- Slider for Investment Amount -->
+        <div class="slider">
+            <input type="range" id="investmentSlider" min="100" max="100000" value="5000" step="100" oninput="updateSliderValue(this.value)">
+            <p>Investment Amount: €<span class="range-value" id="sliderValue">5000</span></p>
+        </div>
+
+        <!-- Canvas for the Graph -->
+        <canvas id="investmentChart"></canvas>
+    </div>
+
+    <script>
+        // Data for Plan A, Bitcoin, and S&P 500
+        const dates = [
+            '01-04-2020', '01-05-2020', '01-06-2020', '01-07-2020', '01-08-2020', '01-09-2020', '01-10-2020', '01-11-2020', '01-12-2020', '01-01-2021',
+            '01-02-2021', '01-03-2021', '01-04-2021', '01-05-2021', '01-06-2021', '01-07-2021', '01-08-2021', '01-09-2021', '01-10-2021', '01-11-2021', 
+            '01-12-2021', '01-01-2022', '01-02-2022', '01-03-2022', '01-04-2022', '01-05-2022', '01-06-2022', '01-07-2022', '01-08-2022', '01-09-2022', 
+            '01-10-2022', '01-11-2022', '01-12-2022', '01-01-2023', '01-02-2023', '01-03-2023', '01-04-2023', '01-05-2023', '01-06-2023', '01-07-2023', 
+            '01-08-2023', '01-09-2023', '01-10-2023', '01-11-2023', '01-12-2023', '01-01-2024', '01-02-2024', '01-03-2024'
+        ];
+
+        const planAData = [
+            5000, 5394.215, 5740.025, 6142.435, 6391.59, 6746.22, 7346.485, 8634.025, 8997.585, 10231.735,
+            10560.795, 11339.205, 11804.605, 11992.805, 12467.24, 13084.745, 13430.415, 14769.32, 14769.32, 15082.815,
+            15764.15, 16730.91, 17492.135, 18248.905, 19330.565, 20990.025, 22304.55, 23029.83, 23980.895, 24987.17,
+            27093.21, 28051.39, 30182.12, 32381.925, 34957.16, 36782.16, 37454.085, 38401.595, 39909.085, 42070.415,
+            43123.91, 43811.285, 44381.15, 45565.42, 45565.42, 46137.285, 47377.675, 47680.445
+        ];
+
+        const bitcoinData = [
+            12428.28465, 9328.086815, 12552.36821, 13753.63668, 13289.01431, 16486.38427, 16938.49645, 15675.69533, 20070.55161, 28654.28256,
+            42111.8934, 48161.43954, 65698.82462, 85481.93297, 83964.12778, 54257.24427, 50952.66496, 60447.02083, 68559.29245, 63748.54533,
+            89185.38345, 82745.9851, 67234.23135, 56002.85116, 62824.68288, 66223.96136, 54768.41615, 46248.98173, 28986.6752, 33898.81299,
+            29157.30827, 28254.10218, 29815.40207, 24967.85174, 24056.49948, 33639.4449, 33647.30013, 41419.90574, 42552.22274, 39590.50972,
+            44328.08681, 42523.56569, 37730.27464, 39221.89573, 50405.27173, 54859.91505, 61492.63936, 61940.67846, 88981.29291, 90043.34924
+        ];
+
+        const sp500Data = [
+            5462.482896, 4779.020746, 5385.211346, 5629.063274, 5732.57276, 6048.444954, 6472.227358, 6218.335121, 6046.300063, 6696.553382,
+            6945.138863, 6867.793351, 7046.984209, 7346.048593, 7731.167486, 8003.129034, 8190.982104, 8297.061247, 8734.173322, 9159.478204,
+            9556.268027, 9723.619369, 10180.04711, 10670.33943, 10329.63526, 10375.20496, 9959.808937, 9513.73296, 9755.127039, 9910.447232,
+            9794.099382, 9994.86106, 10410.15507, 10693.05991, 10790.72041, 11068.11667, 11390.15795, 11792.42646, 11930.48996, 12213.34955,
+            12526.14336, 12850.3511, 13208.57936, 13582.1069, 13856.08349, 14032.43526, 14257.07356, 14435.48704
+        ];
+
+        let initialInvestment = 5000;
+
+        // Initialize the chart
+        const ctx = document.getElementById('investmentChart').getContext('2d');
+        const investmentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [
+                    {
+                        label: 'Plan A',
+                        data: planAData.map(value => value * (initialInvestment / 5000)),
+                        borderColor: '#BAEE2F',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Bitcoin',
+                        data: bitcoinData.map(value => value * (initialInvestment / 5000)),
+                        borderColor: '#F7931A',
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'S&P 500',
+                        data: sp500Data.map(value => value * (initialInvestment / 5000)),
+                        borderColor: '#1E90FF',
+                        borderWidth: 2,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date',
+                            color: '#fff'
+                        },
+                        ticks: {
+                            color: '#fff'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Investment Value (€)',
+                            color: '#fff'
+                        },
+                        ticks: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#fff'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Update the chart when slider value changes
+        function updateSliderValue(value) {
+            document.getElementById('sliderValue').innerText = value;
+            const investmentAmount = parseFloat(value);
+            
+            investmentChart.data.datasets.forEach((dataset, index) => {
+                const originalData = index === 0 ? planAData : (index === 1 ? bitcoinData : sp500Data);
+                dataset.data = originalData.map(point => point * (investmentAmount / 5000));
+            });
+
+            investmentChart.update();
+        }
+    </script>
+</body>
+</html>
